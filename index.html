@@ -1,1 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Results Portal</title>
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f7f6;
+      color: #222;
+    }
+
+    header {
+      background: #087f5b;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 15px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 30px auto;
+    }
+
+    .welcome {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .welcome h2 {
+      color: #087f5b;
+      margin-bottom: 10px;
+    }
+
+    .welcome p {
+      margin-bottom: 25px;
+      color: #555;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      color: #087f5b;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .search-box {
+      background: white;
+      padding: 25px;
+      margin-top: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .search-box h3 {
+      margin-bottom: 15px;
+      color: #087f5b;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 7px;
+      background: #087f5b;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #056b4d;
+    }
+
+    #message {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 40px;
+      background: #073b2b;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 23px;
+      }
+
+      .container {
+        width: 94%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>School Results Portal</h1>
+    <p>Student Academic Results Management System</p>
+  </header>
+
+  <main class="container">
+
+    <section class="welcome">
+      <h2>Welcome to the School Results Portal</h2>
+      <p>
+        Check and manage student academic results quickly and efficiently.
+      </p>
+    </section>
+
+    <section class="cards">
+
+      <div class="card">
+        <h3>👨‍🎓 Students</h3>
+        <p>Access student academic information and results.</p>
+      </div>
+
+      <div class="card">
+        <h3>📚 Subjects</h3>
+        <p>View subjects and academic performance.</p>
+      </div>
+
+      <div class="card">
+        <h3>📊 Results</h3>
+        <p>Check scores, grades, averages and overall performance.</p>
+      </div>
+
+    </section>
+
+    <section class="search-box">
+      <h3>Check Your Result</h3>
+
+      <input
+        type="text"
+        id="studentId"
+        placeholder="Enter Student ID"
+      >
+
+      <button onclick="checkResult()">
+        Check Result
+      </button>
+
+      <p id="message"></p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 School Results Portal</p>
+    <p>NextGen Software Development Capstone Project</p>
+  </footer>
+
+  <script>
+    function checkResult() {
+      const studentId = document.getElementById("studentId").value.trim();
+      const message = document.getElementById("message");
+
+      if (studentId === "") {
+        message.textContent = "Please enter your Student ID.";
+        message.style.color = "red";
+        return;
+      }
+
+      message.textContent =
+        "Result search feature is being developed.";
+
+      message.style.color = "#087f5b";
+    }
+  </script>
+
+</body>
+</html>
