@@ -1,272 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>School Results Portal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<title>School Results Portal</title>
 
-    body {
-      background: #f4f7f6;
-      color: #222;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
 
-    header {
-      background: #087f5b;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+body{
+  background:#f4f7f6;
+  color:#222;
+}
 
-    header h1 {
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
+header{
+  background:#087f5b;
+  color:white;
+  text-align:center;
+  padding:25px;
+}
 
-    header p {
-      font-size: 15px;
-    }
+header h1{
+  margin-bottom:10px;
+}
 
-    .container {
-      width: 90%;
-      max-width: 1000px;
-      margin: 30px auto;
-    }
+.container{
+  width:90%;
+  max-width:1000px;
+  margin:30px auto;
+}
 
-    .welcome {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    }
+.card{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  margin-bottom:20px;
+  box-shadow:0 3px 12px rgba(0,0,0,0.1);
+}
 
-    .welcome h2 {
-      color: #087f5b;
-      margin-bottom: 10px;
-    }
+h2,h3{
+  color:#087f5b;
+  margin-bottom:15px;
+}
 
-    .welcome p {
-      margin-bottom: 25px;
-      color: #555;
-    }
+input{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border:1px solid #ccc;
+  border-radius:7px;
+  font-size:16px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 25px;
-    }
+button{
+  width:100%;
+  padding:13px;
+  background:#087f5b;
+  color:white;
+  border:none;
+  border-radius:7px;
+  cursor:pointer;
+  font-size:16px;
+}
 
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    }
+button:hover{
+  background:#056b4d;
+}
 
-    .card h3 {
-      color: #087f5b;
-      margin-bottom: 10px;
-    }
+.result-card{
+  margin-top:20px;
+}
 
-    .card p {
-      color: #666;
-      font-size: 14px;
-    }
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
+}
 
-    .search-box {
-      background: white;
-      padding: 25px;
-      margin-top: 25px;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    }
+th,td{
+  border:1px solid #ddd;
+  padding:10px;
+  text-align:center;
+}
 
-    .search-box h3 {
-      margin-bottom: 15px;
-      color: #087f5b;
-    }
+th{
+  background:#087f5b;
+  color:white;
+}
 
-    input {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #ccc;
-      border-radius: 7px;
-      margin-bottom: 12px;
-      font-size: 16px;
-    }
+.summary{
+  margin-top:20px;
+  background:#e9f7f1;
+  padding:15px;
+  border-radius:8px;
+}
 
-    button {
-      width: 100%;
-      padding: 13px;
-      border: none;
-      border-radius: 7px;
-      background: #087f5b;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
+footer{
+  background:#073b2b;
+  color:white;
+  text-align:center;
+  padding:20px;
+  margin-top:40px;
+}
 
-    button:hover {
-      background: #056b4d;
-    }
+@media(max-width:600px){
+ table{
+  font-size:12px;
+ }
+}
+</style>
 
-    #message {
-      margin-top: 15px;
-      text-align: center;
-      font-weight: bold;
-    }
-
-    footer {
-      margin-top: 40px;
-      background: #073b2b;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 23px;
-      }
-
-      .container {
-        width: 94%;
-      }
-    }
-  </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>School Results Portal</h1>
-    <p>Student Academic Results Management System</p>
-  </header>
+<header>
+<h1>School Results Portal</h1>
+<p>Student Academic Results Management System</p>
+</header>
 
-  <main class="container">
 
-    <section class="welcome">
-      <h2>Welcome to the School Results Portal</h2>
-      <p>
-        Check and manage student academic results quickly and efficiently.
-      </p>
-    </section>
+<div class="container">
 
-    <section class="cards">
+<div class="card">
+<h2>Welcome</h2>
+<p>
+Check your academic results using your Student ID.
+</p>
+</div>
 
-      <div class="card">
-        <h3>👨‍🎓 Students</h3>
-        <p>Access student academic information and results.</p>
-      </div>
 
-      <div class="card">
-        <h3>📚 Subjects</h3>
-        <p>View subjects and academic performance.</p>
-      </div>
+<div class="card">
 
-      <div class="card">
-        <h3>📊 Results</h3>
-        <p>Check scores, grades, averages and overall performance.</p>
-      </div>
+<h3>Check Your Result</h3>
 
-    </section>
+<input 
+type="text" 
+id="studentId"
+placeholder="Enter Student ID e.g. STU001">
 
-    <section class="search-box">
-      <h3>Check Your Result</h3>
+<button onclick="checkResult()">
+Check Result
+</button>
 
-      <input
-        type="text"
-        id="studentId"
-        placeholder="Enter Student ID"
-      >
+<div id="message"></div>
 
-      <button onclick="checkResult()">
-        Check Result
-      </button>
+</div>
 
-      <p id="message"></p>
-    </section>
+</div>
 
-  </main>
 
-  <footer>
-    <p>© 2026 School Results Portal</p>
-    <p>NextGen Software Development Capstone Project</p>
-  </footer>
+<footer>
+<p>© 2026 School Results Portal</p>
+<p>NextGen Software Development Capstone Project</p>
+</footer>
 
-<script src="script.js"> .result-card {
-  background: white;
-  margin-top: 25px;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-  text-align: left;
+
+<script>
+
+const students={
+
+"STU001":{
+name:"Aisha Ibrahim",
+className:"SS2",
+session:"2025/2026",
+
+subjects:[
+["English",25,60],
+["Mathematics",28,58],
+["Biology",26,62],
+["Chemistry",24,55],
+["Physics",27,59]
+]
+
+},
+
+"STU002":{
+name:"Mohammed Musa",
+className:"SS2",
+session:"2025/2026",
+
+subjects:[
+["English",22,52],
+["Mathematics",24,48],
+["Biology",27,57],
+["Chemistry",21,50],
+["Physics",25,54]
+]
+
 }
 
-.result-card h2 {
-  color: #087f5b;
-  text-align: center;
-  margin-bottom: 20px;
+};
+
+
+function grade(total){
+
+if(total>=70) return ["A","Excellent"];
+if(total>=60) return ["B","Very Good"];
+if(total>=50) return ["C","Good"];
+if(total>=45) return ["D","Fair"];
+if(total>=40) return ["E","Pass"];
+
+return ["F","Fail"];
+
 }
 
-.student-info {
-  background: #f4f7f6;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+
+function checkResult(){
+
+let id=document.getElementById("studentId").value.toUpperCase();
+
+let student=students[id];
+
+let output=document.getElementById("message");
+
+
+if(!student){
+
+output.innerHTML="<p style='color:red;margin-top:15px;'>Student not found. Try STU001</p>";
+
+return;
+
 }
 
-.student-info p {
-  margin: 7px 0;
+
+let rows="";
+let totalMarks=0;
+
+
+student.subjects.forEach(subject=>{
+
+let total=subject[1]+subject[2];
+
+let result=grade(total);
+
+totalMarks+=total;
+
+
+rows+=`
+
+<tr>
+
+<td>${subject[0]}</td>
+
+<td>${subject[1]}</td>
+
+<td>${subject[2]}</td>
+
+<td>${total}</td>
+
+<td>${result[0]}</td>
+
+<td>${result[1]}</td>
+
+</tr>
+
+`;
+
+});
+
+
+let average=(totalMarks/student.subjects.length).toFixed(2);
+
+
+output.innerHTML=`
+
+<div class="card result-card">
+
+<h2>Student Result</h2>
+
+<p><b>Name:</b> ${student.name}</p>
+
+<p><b>Class:</b> ${student.className}</p>
+
+<p><b>Session:</b> ${student.session}</p>
+
+
+<table>
+
+<tr>
+<th>Subject</th>
+<th>CA</th>
+<th>Exam</th>
+<th>Total</th>
+<th>Grade</th>
+<th>Remark</th>
+</tr>
+
+${rows}
+
+</table>
+
+
+<div class="summary">
+
+<p><b>Total Marks:</b> ${totalMarks}</p>
+
+<p><b>Average:</b> ${average}%</p>
+
+</div>
+
+
+</div>
+
+`;
+
 }
 
-.table-container {
-  overflow-x: auto;
-}
-
-.result-card table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 650px;
-}
-
-.result-card th,
-.result-card td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: center;
-}
-
-.result-card th {
-  background: #087f5b;
-  color: white;
-}
-
-.result-card tr:nth-child(even) {
-  background: #f4f7f6;
-}
-
-.summary {
-  margin-top: 20px;
-  padding: 15px;
-  background: #e9f7f1;
-  border-radius: 8px;
-}
-
-.summary p {
-  margin: 6px 0;
-}/script>
+</script>
 
 </body>
 </html>
